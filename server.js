@@ -20,4 +20,17 @@ app.get('/users/list', function (req, res) {
   res.json({ data: 'Hello Users List' });
 })
 
+app.get('/users2', function (req, res) {
+  res.cookie('testcookie', 'auth')
+  // res.cookie('testcookie', 'auth', {domain: '.localtest.me', sameSite: 'strict'})
+  // res.cookie('testcookie', 'auth');
+//   res.send('Hello Users')
+  res.json({ data: 'Hello user2' });
+})
+
+app.get('/users2/list2', function (req, res) {
+//   res.send('Hello Users List')
+  res.json({ data: 'Hello user2 List' });
+})
+
 app.listen(3000)
