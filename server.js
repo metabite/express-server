@@ -21,7 +21,7 @@ app.get('/users/list', function (req, res) {
 })
 
 app.get('/users2', function (req, res) {
-  res.cookie('testcookie', 'auth')
+  res.cookie('testcookie2', 'auth')
   // res.cookie('testcookie', 'auth', {domain: '.localtest.me', sameSite: 'strict'})
   // res.cookie('testcookie', 'auth');
 //   res.send('Hello Users')
