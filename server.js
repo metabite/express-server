@@ -3,28 +3,24 @@ var cors = require('cors')
 const app = express()
 app.use(cors());
 
+var count = 0;
+
 app.get('/', function (req, res) {
+  count = 0;
   res.send('Hello World')
 })
 
 app.get('/users', function (req, res) {
-  res.cookie('testcookie', 'auth', { sameSite: 'none', secure: true})
-  // res.cookie('testcookie', 'auth', {domain: '.localtest.me', sameSite: 'strict'})
-  // res.cookie('testcookie', 'auth');
-//   res.send('Hello Users')
+  res.cookie('testcookie', count++, { sameSite: 'none', secure: true})
   res.json({ data: 'Hello Users' });
 })
 
 app.get('/users/list', function (req, res) {
-//   res.send('Hello Users List')
   res.json({ data: 'Hello Users List' });
 })
 
 app.get('/users2', function (req, res) {
-  res.cookie('testcookie2', 'auth')
-  // res.cookie('testcookie', 'auth', {domain: '.localtest.me', sameSite: 'strict'})
-  // res.cookie('testcookie', 'auth');
-//   res.send('Hello Users')
+  res.cookie('testcookie2', count++)
   res.json({ data: 'Hello user2' });
 })
 
